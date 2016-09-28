@@ -30,4 +30,16 @@ public class User {
   public void setVideos(List<Video> videos){
     this.videos = videos;
   }
+
+  public List<Video>getVideos()
+  {
+    return videos;
+  }
+
+  public int getId()
+  {
+    return userId;
+  }
 }
+
+

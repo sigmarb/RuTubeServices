@@ -1,4 +1,4 @@
-package is.ru.honn.rutube.services;
+package is.ru.honn.rutube.service;
 
 import is.ru.honn.rutube.domain.Video;
 
@@ -10,9 +10,9 @@ import java.util.List;
 
     public interface VideoService
     {
-        List<Video> getVideosbyUser(int userId);
+        List<Video> getVideosbyUser(int userId) throws ServiceException;
         int addVideo(Video video, int userId) throws ServiceException;
-        Video getVideo(int videoId);
+        Video getVideo(int videoId) throws ServiceException;
     }
 
 
