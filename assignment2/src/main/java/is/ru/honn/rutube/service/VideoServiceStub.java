@@ -41,6 +41,13 @@ public class VideoServiceStub implements VideoService
 
     public int addVideo(Video video, int userId) throws ServiceException
     {
+        for (User u:_users)
+        {
+            if(u.getId() == userId)
+            {
+                u.addVideo(video);
+            }
+        }
         return 0;
     }
 
@@ -53,7 +60,7 @@ public class VideoServiceStub implements VideoService
         {
             tmp = u.getVideos();
 
-            for (Video v:u)
+            for (Video v:u.getVideos())
             {
                 if(v.getVideoId() == videoId)
                 {

@@ -40,6 +40,11 @@ public class User {
   {
     return userId;
   }
+
+  public void addVideo(Video v)
+  {
+    videos.add(v);
+  }
 }
 
 

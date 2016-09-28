@@ -22,6 +22,6 @@ public class TestUserService extends TestCase {
     @Before
     public void setup() {
         ApplicationContext ctx = new FileSystemXmlApplicationContext("classpath:resources/spring.config");
-        service = new VideoServiceStub();
+        service = new UserServiceStub();
     }
 }

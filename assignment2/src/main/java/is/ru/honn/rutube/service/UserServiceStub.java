@@ -28,6 +28,7 @@ public class UserServiceStub implements UserService
             throw new ServiceException();
         }
         _users.add(user);
+        return _users.size();
     }
 
     public User getUser(int id) throws ServiceException
