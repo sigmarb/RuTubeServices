@@ -23,5 +23,6 @@ public class TestUserService extends TestCase {
     public void setup() {
         ApplicationContext ctx = new FileSystemXmlApplicationContext("classpath:resources/spring.config");
         service = new UserServiceStub();
+
     }
 }
