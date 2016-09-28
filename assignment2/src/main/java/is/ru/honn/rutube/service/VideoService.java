@@ -1,4 +1,4 @@
-package is.ru.honn.rutube.services;
+package is.ru.honn.rutube.service;
 
 import is.ru.honn.rutube.domain.Video;
 
