@@ -24,7 +24,7 @@ public class UserServiceStub implements UserService
     }
 
     public User getUser(int id) {
-
+        
     }
 
     public List<User> getUsers()
