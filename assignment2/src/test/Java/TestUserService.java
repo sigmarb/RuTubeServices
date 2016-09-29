@@ -24,7 +24,6 @@ public class TestUserService extends TestCase {
 
     @Before
     public void setup() {
-<<<<<<< HEAD
         ApplicationContext ctx = new FileSystemXmlApplicationContext("classpath:..test.resources.spring.config");
         User user1 = (User)ctx.getBean("user1");
         User user2 = (User)ctx.getBean("user2");
@@ -44,10 +43,8 @@ public class TestUserService extends TestCase {
             assertEquals(3, userSize);
         }
         assertEquals(3, userSize);
-=======
         ApplicationContext ctx = new FileSystemXmlApplicationContext("classpath:resources/spring.config");
         service = new UserServiceStub();
 
->>>>>>> d069ac486982012681bec739e48cd1a5e0af4efc
     }
 }
