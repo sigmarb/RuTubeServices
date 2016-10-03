@@ -18,14 +18,23 @@ public class UserServiceStub implements UserService
     }
     public UserServiceStub(List<User> users)
     {
-        _users = users;
+        _users = new ArrayList<User>(users);
     }
 
     public int addUser(User user) throws ServiceException
     {
-        if(_users.contains(user))
+        for (User u: _users)
         {
-            throw new ServiceException();
+            if (u.getUserId() == user.getUserId()) {
+                throw new ServiceException("UserId taken");
+            }
+            if (u.getEmail().equals(user.getEmail())) {
+                throw new ServiceException("Email already in use");
+            }
+            if (u.getDisplayName().equals(user.getDisplayName()))
+            {
+                throw new ServiceException("Display name taken");
+            }
         }
         _users.add(user);
         return _users.size();
@@ -36,14 +45,13 @@ public class UserServiceStub implements UserService
         User tmp;
         for (User u:_users)
         {
-            if(u.getId() == id)
+            if(u.getUserId() == id)
             {
                 tmp = u;
                 return tmp;
             }
         }
-
-        throw new ServiceException();
+        throw new ServiceException("No user found");
     }
 
     public List<User> getUsers()
