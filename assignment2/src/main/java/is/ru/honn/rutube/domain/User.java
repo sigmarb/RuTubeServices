@@ -25,8 +25,56 @@ public class User {
     this.displayName = displayName;
     this.birthDate = parse(birthDate);
     videos = new ArrayList<Video>();
-
   }
+
+  public void setUserId(int userId) {
+    this.userId = userId;
+  }
+
+  public int getUserId() {
+    return this.userId;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getFirstName() {
+    return this.firstName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public String getLastName() {
+    return this.lastName;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public String getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
+  }
+
+  public LocalDate getBirthDate() {
+    return this.birthDate;
+  }
+
   public void setVideos(List<Video> videos){
     this.videos = videos;
   }
@@ -34,11 +82,6 @@ public class User {
   public List<Video>getVideos()
   {
     return videos;
-  }
-
-  public int getId()
-  {
-    return userId;
   }
 
   public void addVideo(Video v)

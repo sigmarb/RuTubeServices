@@ -20,7 +20,7 @@ public class VideoServiceStub implements VideoService
     }
     public VideoServiceStub(List<User> users)
     {
-        _users = users;
+        _users = new ArrayList<User>(users);
     }
 
 
@@ -29,26 +29,46 @@ public class VideoServiceStub implements VideoService
         List<Video> tmp;
         for (User u:_users)
         {
-            if(userId == u.getId())
+            if(userId == u.getUserId())
             {
                 tmp = u.getVideos();
+                return tmp;
             }
         }
 
-        throw new ServiceException();
+        throw new ServiceException("No user found");
     }
 
+
+    //if (u.getUserId() == user.getUserId()) {
+    //throw new ServiceException("UserId taken");
 
     public int addVideo(Video video, int userId) throws ServiceException
     {
         for (User u:_users)
         {
-            if(u.getId() == userId)
+            if(u.getUserId() == userId)
             {
+                for (Video V:u.getVideos())
+                {
+                    if (video.getVideoId() == V.getVideoId())
+                    {
+                        throw new ServiceException("VideoId taken");
+                    }
+                    if (video.getSource() == V.getSource())
+                    {
+                        throw new ServiceException("Source taken");
+                    }
+                    if (video.getTitle() == V.getTitle())
+                    {
+                        throw new ServiceException("Title taken");
+                    }
+                }
                 u.addVideo(video);
+                return u.getVideos().size();
             }
         }
-        return 0;
+        throw new ServiceException("No user found");
     }
 
 
@@ -68,6 +88,6 @@ public class VideoServiceStub implements VideoService
                 }
             }
         }
-        throw new ServiceException();
+        throw new ServiceException("No video found");
     }
 }
