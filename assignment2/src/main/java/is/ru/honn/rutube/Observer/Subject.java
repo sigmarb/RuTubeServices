@@ -11,22 +11,16 @@ import java.util.List;
 public class Subject {
 
     private List<Observer> observers = new ArrayList<Observer>();
-    private int state;
-
-    public int getState()
-    {
-        return state;
-    }
 
     public void attach(Observer observer)
     {
         observers.add(observer);
     }
 
-    public void notifyAllObservers(User obj)
+    public void notifyAllObservers(User user)
     {
         for (Observer observer : observers) {
-            observer.update(obj);
+            observer.update(user);
         }
     }
 }

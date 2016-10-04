@@ -11,11 +11,6 @@ import java.util.List;
  */
 public class UserObserver extends Observer
 {
-    public UserObserver(Subject subject)
-    {
-        this.subject = subject;
-        this.subject.attach(this);
-    }
 
     @Override
     public void update(User u)

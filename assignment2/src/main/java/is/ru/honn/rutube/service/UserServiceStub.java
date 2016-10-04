@@ -39,9 +39,9 @@ public class UserServiceStub implements UserService
             }
         }
         _users.add(user);
-        Subject subject = new Subject();
-        UserObserver u = new UserObserver(subject);
-        u.notifyAll(user);
+        UserObserver us = new UserObserver();
+        Subject s = new Subject();
+        s.notifyAllObservers(user);
         return _users.size();
     }
 
